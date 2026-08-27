@@ -82,7 +82,6 @@ export const skills = {
     "Component libraries",
     "Storybook",
     "Figma (plugin development)",
-    "Chromatic",
   ],
   "AI-Native Workflows": [
     "MCP server development",

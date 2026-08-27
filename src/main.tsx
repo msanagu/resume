@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { pearlLightThemeClass, pearlTreatmentClass, vars } from '@msanagu/design-system';
-import '@msanagu/design-system/index.css';
+import { pearlLightThemeClass, pearlTreatmentClass, vars } from '@msanagu/pearl';
+import '@msanagu/pearl/index.css';
 import './index.css';
 import App from './App.tsx';
 

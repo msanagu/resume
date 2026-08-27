@@ -13,7 +13,7 @@ import {
   Tag,
   Text,
   color,
-} from "@msanagu/design-system";
+} from "@msanagu/pearl";
 import "./App.css";
 import { contact, summary, experience, skills, education } from "./resume";
 
