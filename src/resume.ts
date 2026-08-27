@@ -10,6 +10,7 @@ export const contact = {
   name: "Mary San Agustin",
   title: "Staff Design Engineer",
   location: "Remote",
+  phone: "(949) 291-2504",
   email: "marycsanagustin@gmail.com",
   linkedin: "linkedin.com/in/mary-san-agustin",
 };

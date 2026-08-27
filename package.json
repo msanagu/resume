@@ -10,15 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@msanagu/pearl": "^0.0.2",
+    "@vanilla-extract/css": "^1.21.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "@msanagu/pearl": "^0.0.2",
     "react-icons": "^5.7.0"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "@vanilla-extract/vite-plugin": "^5.2.6",
     "@vitejs/plugin-react": "^6.0.4",
     "oxlint": "^1.75.0",
     "typescript": "~6.0.2",

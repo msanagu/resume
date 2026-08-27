@@ -2,6 +2,7 @@ import {
   PiEnvelopeSimpleBold,
   PiLinkedinLogoBold,
   PiMapPinBold,
+  PiPhoneBold,
 } from "react-icons/pi";
 import {
   Alert,
@@ -14,7 +15,7 @@ import {
   Text,
   color,
 } from "@msanagu/pearl";
-import "./App.css";
+import * as styles from "./App.css";
 import { contact, summary, experience, skills, education } from "./resume";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
       <Row
         justify="end"
         gap="sm"
-        className="no-print toolbar"
+        className={`${styles.noPrint} ${styles.toolbar}`}
         style={{
           background: color.background,
           borderBottom: `1px solid ${color.border}`,
@@ -40,8 +41,8 @@ function App() {
         </Button>
       </Row>
 
-      <div className="page">
-        <Stack as="header" gap="lg" className="intro">
+      <div className={styles.page}>
+        <Stack as="header" gap="lg">
           <Stack gap="xs">
             <Text as="h1" typeScale="displaySm">
               {contact.name}
@@ -56,8 +57,8 @@ function App() {
             </Text>
           </Stack>
 
-          <Row gap="lg" className="contact-row">
-            <Row gap="xs" align="center">
+          <Row gap="lg" wrap className={styles.contactRow}>
+            <Row gap="xs" align="center" className={styles.contactItem}>
               <Icon
                 icon={PiMapPinBold}
                 size={16}
@@ -67,19 +68,31 @@ function App() {
                 {contact.location}
               </Text>
             </Row>
-            <Row gap="xs" align="center">
+            <Row gap="xs" align="center" className={styles.contactItem}>
               <Icon
                 icon={PiEnvelopeSimpleBold}
                 size={16}
                 style={{ color: color.textSubtle }}
               />
-              <a href={`mailto:${contact.email}`} className="plain-link">
+              <a href={`mailto:${contact.email}`} className={styles.plainLink}>
                 <Text typeScale="bodySm" prominence="subtle">
                   {contact.email}
                 </Text>
               </a>
             </Row>
-            <Row gap="xs" align="center">
+            <Row gap="xs" align="center" className={styles.contactItem}>
+              <Icon
+                icon={PiPhoneBold}
+                size={16}
+                style={{ color: color.textSubtle }}
+              />
+              <a href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`} className={styles.plainLink}>
+                <Text typeScale="bodySm" prominence="subtle">
+                  {contact.phone}
+                </Text>
+              </a>
+            </Row>
+            <Row gap="xs" align="center" className={styles.contactItem}>
               <Icon
                 icon={PiLinkedinLogoBold}
                 size={16}
@@ -89,7 +102,7 @@ function App() {
                 href={`https://${contact.linkedin}`}
                 target="_blank"
                 rel="noreferrer"
-                className="plain-link"
+                className={styles.plainLink}
               >
                 <Text typeScale="bodySm" prominence="subtle">
                   {contact.linkedin}
@@ -99,7 +112,7 @@ function App() {
           </Row>
         </Stack>
 
-        <Card className="summary">
+        <Card className={styles.summary}>
           <Card.Body>
             <Text as="p" typeScale="bodyLg">
               {summary}
@@ -107,28 +120,19 @@ function App() {
           </Card.Body>
         </Card>
 
-        <Stack as="section" gap="lg" className="block">
+        <Stack as="section" gap="lg" className={styles.block}>
           <Text as="h2" typeScale="headingMd">
             Experience
           </Text>
           <Stack gap="md">
             {experience.map((job) => (
-              <Card key={job.title + job.dates} className="job-card">
+              <Card key={job.title + job.dates} className={styles.jobCard}>
                 <Card.Header>
-                  <Row
-                    justify="between"
-                    align="start"
-                    wrap
-                    className="job-header"
-                  >
+                  <Row justify="between" align="start" wrap>
                     <Text as="h3" typeScale="headingSm">
                       {job.title} · {job.company}
                     </Text>
-                    <Text
-                      typeScale="bodySm"
-                      prominence="subtle"
-                      className="job-dates"
-                    >
+                    <Text typeScale="bodySm" prominence="subtle">
                       {job.dates}
                     </Text>
                   </Row>
@@ -137,7 +141,7 @@ function App() {
                   </Text>
                 </Card.Header>
                 <Card.Body>
-                  <ul className="bullets">
+                  <ul>
                     {job.bullets.map((b) => (
                       <li key={b}>
                         <Text as="span" typeScale="bodyMd">
@@ -152,11 +156,11 @@ function App() {
           </Stack>
         </Stack>
 
-        <Stack as="section" gap="lg" className="block">
+        <Stack as="section" gap="lg" className={styles.block}>
           <Text as="h2" typeScale="headingMd">
             Skills
           </Text>
-          <div className="skills-grid">
+          <div className={styles.skillsGrid}>
             {Object.entries(skills).map(([group, items]) => (
               <Stack gap="sm" key={group}>
                 <Text as="h4" typeScale="bodySm" weight="semibold">
@@ -172,18 +176,13 @@ function App() {
           </div>
         </Stack>
 
-        <Stack as="section" gap="lg" className="block">
+        <Stack as="section" gap="lg" className={styles.block}>
           <Text as="h2" typeScale="headingMd">
             Education
           </Text>
           <Stack gap="sm">
             {education.map((e) => (
-              <Row
-                justify="between"
-                align="end"
-                key={e.school}
-                className="education-item"
-              >
+              <Row justify="between" align="end" key={e.school}>
                 <Text typeScale="bodyMd">
                   <Text as="span" typeScale="bodyMd" weight="semibold">
                     {e.school}
@@ -200,7 +199,10 @@ function App() {
           </Stack>
         </Stack>
 
-        <Alert variant="info" className="no-print colophon">
+        <Alert
+          variant="info"
+          className={`${styles.noPrint} ${styles.colophon}`}
+        >
           Built with Pearl — every component on this page is a real, shipped
           component from a design system exploring AI-native infrastructure, not
           a mockup.
@@ -210,7 +212,7 @@ function App() {
           as="footer"
           typeScale="bodySm"
           prominence="subtle"
-          className="no-print page-footer"
+          className={`${styles.noPrint} ${styles.pageFooter}`}
         >
           {contact.name} · {contact.title}
         </Text>

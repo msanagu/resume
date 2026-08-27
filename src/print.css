@@ -1,0 +1,15 @@
+/*
+ * The one rule that has to stay plain CSS: vanilla-extract has no API for
+ * the `@page` at-rule. It needs no tokens anyway — these are physical paper
+ * measurements, not values on Pearl's spacing scale.
+ *
+ * Vertical margin only. It repeats on every physical page, which box padding
+ * cannot (padding applies to a fragmented box's first and last edge only, so
+ * a `.page` top inset showed on page 1 and vanished on page 2+). The
+ * horizontal inset is deliberately not here — it lives on `.page` in
+ * App.css.ts, where it applies to every fragment.
+ */
+@page {
+  size: letter;
+  margin: 0.4in 0;
+}
