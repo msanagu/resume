@@ -9,6 +9,7 @@ import {
   Button,
   Card,
   Icon,
+  Link,
   Row,
   Stack,
   Tag,
@@ -205,7 +206,11 @@ function App() {
         >
           Built with Pearl — every component on this page is a real, shipped
           component from a design system exploring AI-native infrastructure, not
-          a mockup.
+          a mockup. Try the components yourself in the{' '}
+          <Link href="https://msanagu.github.io/pearl-playground/" target="_blank" rel="noopener noreferrer">
+            Pearl Playground
+          </Link>
+          .
         </Alert>
 
         <Text
