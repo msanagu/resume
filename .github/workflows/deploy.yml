@@ -26,9 +26,12 @@ jobs:
           node-version: 24
           registry-url: https://npm.pkg.github.com
 
+      # The run's built-in token, not a PAT: @msanagu/pearl grants this repo
+      # read access in its package settings, so nothing here has to be
+      # rotated or can silently expire.
       - run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: npm run build
 
