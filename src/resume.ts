@@ -84,7 +84,7 @@ export const skills = {
     "Storybook",
     "Figma (plugin development)",
   ],
-  "AI-Native Workflows": [
+  "AI-Forward Workflows": [
     "MCP server development",
     "RAG / semantic search",
     "AI-assisted design-to-code",
