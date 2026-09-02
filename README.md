@@ -1,32 +1,36 @@
-# React + TypeScript + Vite
+# Resume
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A React + TypeScript + Vite app, styled with [vanilla-extract](https://vanilla-extract.style/) and built on [@msanagu/pearl](https://www.npmjs.com/package/@msanagu/pearl).
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js
+- [pnpm](https://pnpm.io/installation)
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Install dependencies:
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+pnpm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Run the dev server with hot module reloading:
+
+```sh
+pnpm dev
+```
+
+This starts Vite at [http://localhost:5173](http://localhost:5173).
+
+## Other commands
+
+```sh
+pnpm build    # type-check and build for production (outputs to dist/)
+pnpm preview  # locally preview the production build
+pnpm lint     # run oxlint
+```
+
+## Notes
+
+- `pnpm build` rewrites font asset paths for deployment under a `/resume/` base path (see the `build` script in [package.json](package.json)).

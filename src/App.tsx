@@ -115,7 +115,7 @@ function App() {
 
         <Card className={styles.summary}>
           <Card.Body>
-            <Text as="p" typeScale="bodyLg">
+            <Text as="p" typeScale="bodyMd">
               {summary}
             </Text>
           </Card.Body>
@@ -145,7 +145,7 @@ function App() {
                   <ul>
                     {job.bullets.map((b) => (
                       <li key={b}>
-                        <Text as="span" typeScale="bodyMd">
+                        <Text as="span" typeScale="bodySm">
                           {b}
                         </Text>
                       </li>
