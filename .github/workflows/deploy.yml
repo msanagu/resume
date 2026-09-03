@@ -9,7 +9,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  packages: read
 
 concurrency:
   group: pages
@@ -24,14 +23,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: https://npm.pkg.github.com
+          registry-url: https://registry.npmjs.org
 
-      # The run's built-in token, not a PAT: @msanagu/pearl grants this repo
-      # read access in its package settings, so nothing here has to be
-      # rotated or can silently expire.
       - run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: npm run build
 
