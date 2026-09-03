@@ -204,7 +204,10 @@ function App() {
           variant="info"
           className={`${styles.noPrint} ${styles.colophon}`}
         >
-          Built with Pearl — every component on this page is a real, shipped
+          Built with{' '}<Link href="https://msanagu.github.io/pearl/" target="_blank" rel="noopener noreferrer">
+            Pearl
+          </Link>
+          — every component on this page is a real, shipped
           component from a design system exploring AI-forward infrastructure. Try the components yourself in the{' '}
           <Link href="https://msanagu.github.io/pearl-playground/" target="_blank" rel="noopener noreferrer">
             Pearl Playground
